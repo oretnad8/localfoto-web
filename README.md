@@ -1,71 +1,49 @@
-# LocalFoto Web 📸
+# LocalFoto Web - Landing Page 🌐
 
-> **Tu Kiosco Fotográfico en el Bolsillo del Cliente.**
+> **La vitrina digital y simulador interactivo del ecosistema LocalFoto.**
 
-LocalFoto Web es una plataforma de software avanzada diseñada para laboratorios y locales de fotografía profesional. Permite a los clientes acceder a un sistema de edición profesional instantáneo directamente desde su smartphone o kiosco táctil, sin necesidad de cables ni aplicaciones externas.
+Este repositorio contiene el código fuente de la **Landing Page** oficial de LocalFoto. No es el software de kiosco (Hotfolder), sino la plataforma web comercial diseñada para presentar el servicio a dueños de laboratorios fotográficos y permitirles experimentar con el flujo de trabajo a través de simuladores interactivos.
 
-## 🚀 Tecnologías Clave
+## ✨ Propósito del Proyecto
 
-Este proyecto utiliza un stack moderno para garantizar una experiencia de usuario fluida y de alto rendimiento:
+El objetivo principal de esta web es convertir visitantes en clientes mediante una presentación premium y visualmente impactante de las capacidades tecnológicas de LocalFoto:
 
-- **React 19**: La última versión del core de React.
-- **Vite**: Build tool ultrarrápida para desarrollo y producción.
-- **Tailwind CSS v4**: Motor de estilos de última generación para un diseño premium y altamente personalizable.
-- **Framer Motion**: Animaciones fluidas y transiciones orgánicas.
-- **Lucide Icons**: Set de iconos vectoriales consistentes.
-- **TypeScript**: Tipado estático para un desarrollo robusto.
+- **Showcase de Editores**: Presentación interactiva de los 8 motores de edición profesional.
+- **Simulador Móvil**: Un componente avanzado (`MobileSimulationFlow`) que emula la experiencia del cliente final en su smartphone.
+- **Presentación White Label**: Demostración dinámica de cómo el sistema se adapta a la identidad visual de cualquier negocio.
+- **Conversión**: Formulario de contacto inteligente con selección de planes y modelos de hardware.
 
-## 🎨 Motores de Edición Pro
+## 🚀 Stack Tecnológico
 
-LocalFoto incluye 8 editores especializados que funcionan nativamente en el navegador:
+Desarrollado con las tecnologías web más modernas para garantizar velocidad y una estética de vanguardia:
 
-1.  **Unitario**: Ajustes precisos de brillo, contraste, saturación y encuadre dinámico.
-2.  **Collage**: Sistema de grillas dinámicas con slots inteligentes y detección de colisiones.
-3.  **Photo Strips**: Tiras de 2x6" optimizadas para papel 6x8" en impresoras profesionales (DNP DS620A).
-4.  **Calendarios**: Formatos mensuales y anuales con inyección automática de feriados nacionales.
-5.  **Álbumes Pro**: Gestión completa de páginas, composiciones y personalización total del fotolibro.
-6.  **Overlays**: Capas de diseño temáticas para marcos automáticos en eventos.
-7.  **Spotify/QR**: Creación de placas musicales dinámicas y códigos QR con mensajes ocultos.
-8.  **Photo Split**: Segmentación de imágenes en multipaneles decorativos con cálculo automático de precios.
+- **React 19**: Frontend reactivo y eficiente.
+- **Vite**: Entorno de desarrollo y build ultrarrápido.
+- **Tailwind CSS v4**: Estilos premium utilizando las últimas capacidades del motor CSS.
+- **Framer Motion**: Micro-interacciones y transiciones orgánicas que elevan la percepción de calidad.
+- **Lucide Icons**: Iconografía simplificada y profesional.
 
-## 💼 Funcionalidades Profesionales
+## 🛠️ Componentes Clave
 
-### Identidad White Label Absoluta
-El sistema detecta automáticamente la licencia por hardware (**HWID**) y adapta toda su identidad visual al negocio del cliente:
-- Inyección de logotipos corporativos.
-- Paleta de colores dinámica.
-- Mensajes de bienvenida personalizados.
-- Configuración de subdominios propios.
+- `src/App.tsx`: Orquestador principal de la Landing Page, secciones de marketing y gestión de temas dinámicos.
+- `src/MobileSimulationFlow.tsx`: **Módulo Crítico**. Emula la interfaz que el cliente final utiliza en su teléfono para subir y editar fotos.
+- `src/BrandWaves.tsx`: Generador de ondas estéticas que se adaptan cromáticamente al tema seleccionado.
+- `src/index.css`: Implementación de variables de diseño avanzadas (@property) y tokens de Tailwind v4.
 
-### Flujo Híbrido de Pagos
-- **Checkout Digital**: Integración nativa con MercadoPago.
-- **Pago en Caja**: Sistema Validador para confirmación manual (Efectivo/POS).
+## 💻 Guía de Desarrollo
 
-### Compatibilidad Industrial
-Optimizado para hotfolders de hardware profesional:
-- **FUJIFILM**: DX100, DE100.
-- **DNP**: DS620A, DS820.
-
-## 🛠️ Estructura del Proyecto
-
-- `src/App.tsx`: Punto de entrada principal con gestión de temas y navegación de secciones.
-- `src/MobileSimulationFlow.tsx`: Flujo interactivo de simulación para smartphones (Mockup móvil).
-- `src/BrandWaves.tsx`: Componente decorativo de ondas dinámicas según el tema.
-- `src/index.css`: Configuración de Tailwind v4 y variables de diseño CSS (@property).
-- `public/`: Assets estáticos, incluyendo recursos para los editores.
-
-## 💻 Desarrollo Local
+Este proyecto es una aplicación web estática (SPA) optimizada para despliegue rápido.
 
 ```bash
-# Instalar dependencias
+# Instalación de dependencias
 npm install
 
-# Iniciar servidor de desarrollo
+# Servidor de desarrollo con HMR
 npm run dev
 
-# Construir para producción
+# Generación del bundle de producción (dist/)
 npm run build
 ```
 
 ---
-© 2026 LocalFoto Software. Optimizado para Laboratorios Fotográficos Profesionales.
+© 2026 LocalFoto Software. Este sitio es una herramienta de ventas y simulación. Para el software de impresión (Hotfolder), consulta la documentación interna del servidor de licencias.
