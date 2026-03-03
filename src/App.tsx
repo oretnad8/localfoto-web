@@ -106,6 +106,16 @@ const App = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [imgVariation, setImgVariation] = useState(1);
 
+  const scrollToSection = (id: string) => {
+    setIsMenuOpen(false);
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 300);
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setImgVariation(prev => (prev === 3 ? 1 : prev + 1));
@@ -200,14 +210,14 @@ const App = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white/90 backdrop-blur-md border-b border-gray-200 overflow-hidden"
+              className="md:hidden bg-white border-b border-gray-200 overflow-hidden"
             >
               <div className="px-4 pt-2 pb-6 space-y-2">
-                <a href="#top" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">Inicio</a>
-                <a href="#whitelabel" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">White Label</a>
-                <a href="#features" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">Editores</a>
-                <a href="#dashboard" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">Panel de Control</a>
-                <a href="#contacto" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">Precios</a>
+                <button onClick={() => scrollToSection('top')} className="block w-full text-left px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">Inicio</button>
+                <button onClick={() => scrollToSection('whitelabel')} className="block w-full text-left px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">White Label</button>
+                <button onClick={() => scrollToSection('features')} className="block w-full text-left px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">Editores</button>
+                <button onClick={() => scrollToSection('dashboard')} className="block w-full text-left px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">Panel de Control</button>
+                <button onClick={() => scrollToSection('contacto')} className="block w-full text-left px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">Precios</button>
               </div>
             </motion.div>
           )}
@@ -316,7 +326,7 @@ const App = () => {
       </section>
 
       {/* White Label Section */}
-      <section id="whitelabel" className="py-24 bg-light-bg relative">
+      <section id="whitelabel" className="py-24 bg-light-bg relative scroll-mt-7">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-[2rem] shadow-xl p-8 md:p-12 lg:p-16 border border-gray-100 overflow-hidden relative">
             <div className="absolute -right-20 -top-20 w-64 h-64 bg-deep-100 rounded-full opacity-50"></div>
@@ -420,7 +430,7 @@ const App = () => {
       </section>
 
       {/* Interactive Editor Showcase Section */}
-      <section id="features" className="py-24 bg-light-bg relative overflow-hidden">
+      <section id="features" className="py-24 bg-light-bg relative overflow-hidden scroll-mt-7">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl md:text-5xl font-extrabold text-deep-900 mb-6">
@@ -491,7 +501,7 @@ const App = () => {
       </section>
 
       {/* Gestión Centralizada y Control Operativo Section */}
-      <section id="dashboard" className="py-24 bg-white relative overflow-hidden">
+      <section id="dashboard" className="py-24 bg-white relative overflow-hidden scroll-mt-7">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-3xl md:text-5xl font-extrabold text-deep-900 mb-6">
@@ -646,7 +656,7 @@ const App = () => {
       </section>
 
       {/* Planes y Contacto Section */}
-      <section id="contacto" className="py-24 bg-white relative overflow-hidden">
+      <section id="contacto" className="py-24 bg-white relative overflow-hidden scroll-mt-7">
         <BrandWaves height={240} className="top-0 rotate-180 opacity-30" mirrored={true} />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
