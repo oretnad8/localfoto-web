@@ -1,5 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import {
+  MonitorSmartphone, Settings, Zap, Edit3,
+  Music, Layers, ShieldCheck, CreditCard,
+  Printer, CheckCircle2, QrCode, Usb, Bluetooth, HardDrive,
+  LayoutGrid, Columns, Calendar, Scissors, Wallet,
+  Phone, BookOpen, Check, Send, Building2, MapPin,
+  Menu, X
+} from 'lucide-react';
 
 const THEME_COLORS: Record<string, Record<string, string>> = {
   orange: {
@@ -87,18 +95,12 @@ const EDITORS_DATA = [
     image: '/images/editors/split.jpeg'
   }
 ];
-import {
-  MonitorSmartphone, Settings, Zap, Edit3,
-  Music, Layers, ShieldCheck, CreditCard,
-  Printer, CheckCircle2, QrCode, Usb, Bluetooth, HardDrive,
-  LayoutGrid, Columns, Calendar, Scissors, Wallet,
-  Phone, BookOpen, Check, Send, Building2, MapPin
-} from 'lucide-react';
 import MobileSimulationFlow from './MobileSimulationFlow';
 import BrandWaves from './BrandWaves';
 
 const App = () => {
   const [theme, setTheme] = useState('blue');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeEditor, setActiveEditor] = useState(EDITORS_DATA[0]);
   const [selectedPlan, setSelectedPlan] = useState<'Mensual' | 'Anual' | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -169,6 +171,8 @@ const App = () => {
               </div>
               <span className="font-bold text-xl tracking-tight text-deep-800">LocalFoto</span>
             </div>
+
+            {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               <a href="#top" className="text-deep-500 font-medium transition-all nav-link-neon">Inicio</a>
               <a href="#whitelabel" className="text-deep-500 font-medium transition-all nav-link-neon">White Label</a>
@@ -176,12 +180,42 @@ const App = () => {
               <a href="#dashboard" className="text-deep-500 font-medium transition-all nav-link-neon">Panel de Control</a>
               <a href="#contacto" className="text-deep-500 font-medium transition-all nav-link-neon">Precios</a>
             </div>
+
+            {/* Mobile Toggle */}
+            <div className="md:hidden flex items-center">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-deep-800 p-2 focus:outline-none"
+              >
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-white border-b border-gray-200 overflow-hidden"
+            >
+              <div className="px-4 pt-2 pb-6 space-y-2">
+                <a href="#top" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">Inicio</a>
+                <a href="#whitelabel" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">White Label</a>
+                <a href="#features" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">Editores</a>
+                <a href="#dashboard" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">Panel de Control</a>
+                <a href="#contacto" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">Precios</a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-12 pb-0 -mb-48 overflow-hidden">
+      <section className="relative pt-24 md:pt-32 pb-0 -mb-48 overflow-hidden">
         <div className="absolute inset-x-0 top-0 bottom-0 z-0 flex justify-center">
           <img
             src="/heroBack.png"
@@ -258,21 +292,21 @@ const App = () => {
               <div className="relative mx-auto max-w-md lg:max-w-none flex flex-col items-center">
 
                 {/* Phone Mockup Foreground */}
-                <div className="relative z-10 mx-auto transform hover:-translate-y-2 transition-transform duration-500">
+                <div className="relative z-10 mx-auto transform hover:-translate-y-2 transition-transform duration-500 -translate-x-22 lg:translate-x-0">
                   <MobileSimulationFlow />
-                </div>
 
-                {/* Theme Switcher Sidebar */}
-                <div className="flex flex-col absolute left-2 lg:left-auto lg:-right-20 top-1/2 -translate-y-1/2 gap-3 lg:gap-4 z-30">
-                  {Object.keys(THEME_COLORS).map((colorKey) => (
-                    <button
-                      key={colorKey}
-                      onClick={() => setTheme(colorKey)}
-                      title={`Cambiar a tema ${colorKey}`}
-                      className={`w-10 h-10 rounded-full shadow-lg border-2 transition-all hover:scale-110 ${theme === colorKey ? 'border-deep-800 scale-110 ring-2 ring-deep-800/20' : 'border-white'}`}
-                      style={{ backgroundColor: THEME_COLORS[colorKey]['500'] }}
-                    />
-                  ))}
+                  {/* Theme Switcher - Centered on Mobile */}
+                  <div className="flex flex-row lg:flex-col absolute -top-2 left-1/2 -translate-x-1/2 lg:left-auto lg:-right-24 lg:top-1/2 lg:-translate-y-1/2 gap-3 lg:gap-4 z-30 w-full justify-center lg:w-auto">
+                    {Object.keys(THEME_COLORS).map((colorKey) => (
+                      <button
+                        key={colorKey}
+                        onClick={() => setTheme(colorKey)}
+                        title={`Cambiar a tema ${colorKey}`}
+                        className={`w-10 h-10 rounded-full shadow-lg border-2 transition-all hover:scale-110 ${theme === colorKey ? 'border-deep-800 scale-110 ring-2 ring-deep-800/20' : 'border-white'}`}
+                        style={{ backgroundColor: THEME_COLORS[colorKey]['500'] }}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -367,12 +401,12 @@ const App = () => {
                   <p className="text-sm text-deep-500 mb-4">
                     Adaptable a las necesidades de tu mostrador. Delega el cobro o contrólalo tú mismo a traves de el sistema Validador de ordenes.
                   </p>
-                  <div className="flex gap-2 font-medium text-sm">
-                    <span className="flex-1 px-5 py-3 bg-[#009ee3] text-white rounded-lg whitespace-nowrap flex flex-col items-center justify-center gap-2 text-center">
+                  <div className="flex flex-col sm:flex-row gap-2 font-medium text-sm">
+                    <span className="flex-1 px-5 py-3 bg-[#009ee3] text-white rounded-lg flex flex-col items-center justify-center gap-2 text-center">
                       <img src="/mp_logo.png" alt="MercadoPago" className="h-8 w-auto" />
                       MercadoPago Checkout
                     </span>
-                    <span className="flex-1 px-5 py-3 gradient-bg text-white rounded-lg whitespace-nowrap flex flex-col items-center justify-center gap-2 text-center">
+                    <span className="flex-1 px-5 py-3 gradient-bg text-white rounded-lg flex flex-col items-center justify-center gap-2 text-center">
                       <Wallet className="w-5 h-5" />
                       Pago en Caja (Efectivo/POS)
                     </span>
