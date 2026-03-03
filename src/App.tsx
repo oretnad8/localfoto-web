@@ -200,7 +200,7 @@ const App = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white border-b border-gray-200 overflow-hidden"
+              className="md:hidden bg-white/90 backdrop-blur-md border-b border-gray-200 overflow-hidden"
             >
               <div className="px-4 pt-2 pb-6 space-y-2">
                 <a href="#top" onClick={() => setIsMenuOpen(false)} className="block px-3 py-2 text-deep-800 font-bold hover:bg-gray-50 rounded-lg">Inicio</a>
