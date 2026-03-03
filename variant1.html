@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LocalFoto - The Cloud-to-Print Freedom</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0ea5e9", // Sky blue from logo
+                        secondary: "#ec4899", // Pink from logo
+                        accent: "#eab308", // Yellow from logo
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e293b",
+                        "text-light": "#1e293b",
+                        "text-dark": "#f1f5f9",
+                        "slate-850": "#162032",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem",
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(14, 165, 233, 0.3)',
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #0ea5e9, #ec4899, #eab308);
+        }
+        .hero-blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, rgba(236,72,153,0.05) 50%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-body transition-colors duration-300">
+<nav class="sticky top-0 z-50 w-full backdrop-blur-md bg-surface-light/90 dark:bg-surface-dark/90 border-b border-gray-200 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center">
+<div class="flex-shrink-0 flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-900 relative overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 bg-gradient-to-tr from-accent via-secondary to-primary opacity-80"></div>
+<span class="relative text-white font-bold text-xs">LF</span>
+</div>
+<span class="font-display font-bold text-xl tracking-tight">LocalFoto</span>
+</div>
+<div class="hidden md:block ml-10 space-x-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#features">Características</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#integration">Integraciones</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#demo">Demo</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#pricing">Precios</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-500 dark:text-gray-400" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons text-xl">brightness_4</span>
+</button>
+<a class="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all" href="#">
+                        Solicitar Demo
+                    </a>
+</div>
+</div>
+</div>
+</nav>
+<section class="relative overflow-hidden pt-16 pb-24 lg:pt-32 lg:pb-40">
+<div class="hero-blob top-0 right-0 translate-x-1/3 -translate-y-1/4"></div>
+<div class="hero-blob bottom-0 left-0 -translate-x-1/3 translate-y-1/4"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+<div class="lg:col-span-6 text-center lg:text-left mb-12 lg:mb-0">
+<div class="inline-flex items-center px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-semibold mb-6 uppercase tracking-wider">
+                        Ecosistema de impresión v2.0
+                    </div>
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold tracking-tight mb-6 leading-tight">
+                        La Libertad del <br/>
+<span class="gradient-text">Cloud-to-Print</span>
+</h1>
+<p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
+                        Conecta kioscos, smartphones y laboratorios profesionales en un solo ecosistema. Sin cables, sin complicaciones, directo a la impresora.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+<a class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-gray-100 md:py-4 md:text-lg md:px-10 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1" href="#">
+                            Solicitar Demo
+                            <span class="material-icons ml-2">arrow_forward</span>
+</a>
+<a class="inline-flex items-center justify-center px-8 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-lg text-gray-700 dark:text-gray-200 bg-white dark:bg-transparent hover:bg-gray-50 dark:hover:bg-gray-800 md:py-4 md:text-lg md:px-10 transition-all" href="#how-it-works">
+                            Ver video
+                            <span class="material-icons ml-2">play_circle_outline</span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-6 relative">
+<div class="relative rounded-2xl bg-gradient-to-br from-surface-light to-gray-50 dark:from-surface-dark dark:to-slate-900 border border-gray-200 dark:border-gray-700 p-8 shadow-2xl">
+<svg class="absolute top-1/2 left-10 right-10 h-24 -translate-y-1/2 z-0 pointer-events-none opacity-20 dark:opacity-40" fill="none" stroke="currentColor" viewBox="0 0 400 100">
+<path class="text-primary animate-pulse" d="M0,50 Q100,0 200,50 T400,50" stroke-dasharray="8 8" stroke-width="2"></path>
+</svg>
+<div class="relative z-10 flex justify-between items-center gap-4">
+<div class="flex flex-col items-center gap-3 transform translate-y-4">
+<div class="w-24 h-48 bg-gray-900 rounded-2xl border-4 border-gray-800 shadow-xl flex flex-col overflow-hidden relative">
+<div class="w-full h-6 bg-gray-800 z-20"></div>
+<div class="flex-1 bg-gray-800 relative">
+<div class="absolute inset-0 grid grid-cols-2 gap-1 p-2">
+<div class="bg-secondary/80 rounded"></div>
+<div class="bg-accent/80 rounded"></div>
+<div class="bg-primary/80 rounded"></div>
+<div class="bg-white/20 rounded"></div>
+</div>
+<div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+<div class="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+</div>
+</div>
+<div class="w-full h-8 bg-gray-900 flex justify-center items-center">
+<div class="w-8 h-1 bg-gray-700 rounded-full"></div>
+</div>
+</div>
+<span class="text-sm font-semibold text-gray-500">Usuario</span>
+</div>
+<div class="flex flex-col items-center justify-center">
+<div class="w-24 h-24 rounded-full bg-white dark:bg-slate-800 shadow-glow flex items-center justify-center border border-gray-100 dark:border-gray-700 relative">
+<span class="material-icons text-5xl text-primary">cloud_upload</span>
+<div class="absolute -top-1 -right-1 w-6 h-6 bg-accent rounded-full flex items-center justify-center text-xs font-bold text-white animate-bounce">!</div>
+</div>
+<span class="text-sm font-bold mt-2 gradient-text">LocalFoto Cloud</span>
+</div>
+<div class="flex flex-col items-center gap-3 transform translate-y-4">
+<div class="w-32 h-28 bg-gray-200 dark:bg-slate-700 rounded-lg shadow-lg relative flex flex-col justify-end border-b-8 border-gray-300 dark:border-slate-600">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-2 bg-gray-300 dark:bg-slate-600"></div>
+<div class="mx-auto w-20 h-16 bg-white dark:bg-slate-800 shadow-inner mb-4 relative overflow-hidden">
+<div class="absolute top-0 left-2 right-2 h-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-600 transform translate-y-2 transition-transform">
+<div class="w-full h-full bg-cover bg-center opacity-80" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDnS_nW3s5txMZmIlZkHZPJT-rXkyxHKwcfFUDyFs9WpVGL4hwr8QBwtEGRWJVgLYkl1ZKWnUHOIJZaExC9U9KzZFYegK8sRZarazyUOkooAzYzh_VZ92Fwb7VQcX849ml-xngfM_s17wOsS0IctZyvhXNBjVm3LGTf35IKtJrWkpdQ-WVLOwMjh3aSFz6GberOQHUpKFMWjtoIhN2E06hnXHm4W-iQFqOzNIC-bGYMGiaf-LUR8oPVryvrpcpQskJCnN2S76EbyhCW');"></div>
+</div>
+</div>
+<div class="w-full h-8 bg-gray-300 dark:bg-slate-600 flex items-center justify-between px-4 rounded-b-lg">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<div class="text-[10px] text-gray-500 dark:text-gray-400 font-mono">READY</div>
+</div>
+</div>
+<span class="text-sm font-semibold text-gray-500">Laboratorio</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-white dark:bg-slate-850" id="features">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4">Potencia para tu negocio de impresión</h2>
+<p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Nuestra tecnología optimiza cada paso del proceso, desde la captura hasta la entrega final.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="group p-8 bg-background-light dark:bg-surface-dark rounded-2xl border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:border-primary/50 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/10 transition-colors"></div>
+<div class="w-14 h-14 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-primary flex items-center justify-center mb-6">
+<span class="material-icons text-3xl">wifi_tethering</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Carga Remota</h3>
+<p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Permite a tus clientes subir fotos desde cualquier lugar. Ya sea en casa o en la tienda, su smartphone es el kiosco.
+                    </p>
+<ul class="mt-6 space-y-2">
+<li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+<span class="w-2 h-2 rounded-full bg-primary mr-2"></span> No requiere app
+                        </li>
+<li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+<span class="w-2 h-2 rounded-full bg-primary mr-2"></span> Código QR instantáneo
+                        </li>
+</ul>
+</div>
+<div class="group p-8 bg-background-light dark:bg-surface-dark rounded-2xl border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:border-secondary/50 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-secondary/10 transition-colors"></div>
+<div class="w-14 h-14 rounded-xl bg-pink-100 dark:bg-pink-900/30 text-secondary flex items-center justify-center mb-6">
+<span class="material-icons text-3xl">branding_watermark</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Marca Blanca</h3>
+<p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Tu marca es lo primero. Personaliza la interfaz de usuario con tu logotipo, colores y dominio propio.
+                    </p>
+<ul class="mt-6 space-y-2">
+<li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+<span class="w-2 h-2 rounded-full bg-secondary mr-2"></span> Logo personalizado
+                        </li>
+<li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+<span class="w-2 h-2 rounded-full bg-secondary mr-2"></span> Colores corporativos
+                        </li>
+</ul>
+</div>
+<div class="group p-8 bg-background-light dark:bg-surface-dark rounded-2xl border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:border-accent/50 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-accent/10 transition-colors"></div>
+<div class="w-14 h-14 rounded-xl bg-yellow-100 dark:bg-yellow-900/30 text-accent flex items-center justify-center mb-6">
+<span class="material-icons text-3xl">support_agent</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Soporte Oficial</h3>
+<p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Equipo técnico especializado disponible para configurar tus impresoras y resolver dudas en tiempo real.
+                    </p>
+<ul class="mt-6 space-y-2">
+<li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+<span class="w-2 h-2 rounded-full bg-accent mr-2"></span> Chat prioritario
+                        </li>
+<li class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+<span class="w-2 h-2 rounded-full bg-accent mr-2"></span> Configuración remota
+                        </li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 border-y border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900" id="integration">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-8">Compatible con los líderes de la industria</p>
+<div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+<div class="h-12 flex items-center">
+<span class="text-3xl font-extrabold text-[#ed1a3b] tracking-tighter">FUJIFILM</span>
+</div>
+<div class="h-12 flex items-center">
+<span class="text-3xl font-extrabold text-[#003399] tracking-tighter italic">DNP</span>
+</div>
+<div class="h-12 flex items-center">
+<span class="text-3xl font-extrabold text-gray-800 dark:text-gray-200 tracking-tight">CITIZEN</span>
+</div>
+<div class="h-12 flex items-center">
+<span class="text-3xl font-extrabold text-[#003399] tracking-tighter">EPSON</span>
+</div>
+</div>
+<div class="mt-10">
+<a class="text-primary hover:text-sky-600 font-medium text-sm inline-flex items-center" href="#">
+                    Ver lista completa de hardware soportado
+                    <span class="material-icons text-base ml-1">chevron_right</span>
+</a>
+</div>
+</div>
+</section>
+<section class="py-24 bg-surface-light dark:bg-surface-dark overflow-hidden" id="demo">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="lg:grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1">
+<div class="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl flex flex-col justify-start overflow-hidden">
+<div class="h-[32px] w-[3px] bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
+<div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
+<div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg"></div>
+<div class="h-[64px] w-[3px] bg-gray-800 absolute -right-[17px] top-[142px] rounded-r-lg"></div>
+<div class="rounded-[2rem] overflow-hidden w-full h-full bg-white dark:bg-slate-900 relative flex flex-col">
+<div class="bg-white dark:bg-slate-900 px-6 pt-3 pb-2 flex justify-between items-center text-[10px] text-gray-900 dark:text-white font-medium z-20">
+<span>9:41</span>
+<div class="flex gap-1.5">
+<span class="material-icons text-[12px]">signal_cellular_alt</span>
+<span class="material-icons text-[12px]">wifi</span>
+<span class="material-icons text-[12px]">battery_full</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 px-4 py-3 border-b border-gray-100 dark:border-gray-800 z-10">
+<div class="flex items-center justify-between">
+<span class="material-icons text-gray-400">menu</span>
+<span class="font-bold text-gray-900 dark:text-white">LocalFoto Upload</span>
+<span class="material-icons text-primary">cloud_done</span>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-4 scrollbar-hide">
+<div class="mb-4">
+<h4 class="text-sm font-bold mb-2 text-gray-800 dark:text-gray-200">Selecciona fotos</h4>
+<div class="grid grid-cols-3 gap-2">
+<div class="aspect-square rounded-lg bg-gray-200 dark:bg-gray-700 relative group cursor-pointer overflow-hidden">
+<img alt="Gallery photo 1" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIO3Q-yrYy7Dxz_ULOP-ZHWkN5BIE4DUiBz0AyeHJAWvtpEeW56RmPQC-aAVnwqZZRaw0IfUU6-x2i4-vR55U1gKNTqTzlupJ4vCFviGOPAiEvxh1D3MYpZpg3ZSb67CME4QuR-KRfM7RgbYEMVA0e_RwXeJaQJywrezY969zVwaQjPPXYqXWMNLmAUAOGjILHdUuDCKV_ztZ6hFj_nWA6mUkHVTS67w3rsfoytiW-JJjcIYahV-FiFdt8YwueBZtdPSzsjWweq-9_"/>
+<div class="absolute top-1 right-1 w-5 h-5 bg-primary rounded-full flex items-center justify-center border border-white">
+<span class="material-icons text-white text-[10px]">check</span>
+</div>
+</div>
+<div class="aspect-square rounded-lg bg-gray-200 dark:bg-gray-700 relative group cursor-pointer overflow-hidden">
+<img alt="Gallery photo 2" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrJ2tgInB7zSl4FBXMfucaZ20ihZOuTk22IHWF8bQrG5OPPC1XFtpSM_ddS8edwgMzAJBKERdvnVj-yjhY7HDu-Cm6FJYdvnX7IFkStLiI8PtmA3WrtGNT-4LjiVFf6nlWbiE4NULAmc5KmFpIGv2uKdxXT9wk6zMlK7g93XHl3JnlsAqNhQAyDtg_A2EvpWIvtEjLqUiqzZBVsIjVqdRLq-iw1c-Pib-NZzvxq_118_dJH9TmjgIPJbp9ia5UX0BSGYWDMLMnNHI8"/>
+<div class="absolute top-1 right-1 w-5 h-5 bg-primary rounded-full flex items-center justify-center border border-white">
+<span class="material-icons text-white text-[10px]">check</span>
+</div>
+</div>
+<div class="aspect-square rounded-lg bg-gray-200 dark:bg-gray-700 relative group cursor-pointer overflow-hidden">
+<img alt="Gallery photo 3" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnAxHG83y-SiaNxM4ysiiJXT97iv7VEw6ViI5hubmg6hpTopCk1feQe0-VqFFhFNeWDF7hClnChfQDsYanfi9PuQMyRpsyHlfb-m245OHTnU5HgToJ8TiypyUeV-5MH4yGU350RhsJ7r2klHyIbaVR5ZLaqCd1tfTgrJYY_W6yP2FDVd3xgWe0Doaqycx4xr879AC_Ct6Dj-Avmn6woY_yC4h74a3XaTWTA3Qsaj5Dvqvr0g1gkQ5svbIyIkIVkAdmjSPaw-51Wuyv"/>
+</div>
+<div class="aspect-square rounded-lg bg-gray-200 dark:bg-gray-700 relative group cursor-pointer overflow-hidden">
+<img alt="Gallery photo 4" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5fPRKvhrhIPb1t_PRF26n_7qSzKSWbIAORaR3R3pJzNyMQlOqyDKHC_NyxqbXJ8cw2Z9AZyh6skOl96LfJI1WZl-HaKQg9qul2O-3BNWsIwZu1aT9gIPRnYYwjscSyc-l2_JUwWP8JeMPfCAP2JGo-XhMdW3bjH5a2Ovfa10Y6H_Ig9tAPGiThAAg7wJ7DJ0YgdPIx5jIKJ4RJJijKNP5CWKWProWqQV8gyr3Jd1cQVut4VfuYWh9eZZEXSJsoGwbykPtGflFJjjb"/>
+</div>
+<div class="aspect-square rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center cursor-pointer border-2 border-dashed border-gray-300 dark:border-gray-600">
+<span class="material-icons text-gray-400">add</span>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-100 dark:border-gray-700 mb-4">
+<div class="flex justify-between text-xs mb-1">
+<span class="text-gray-500">Impresora</span>
+<span class="font-semibold text-gray-900 dark:text-white">DNP DS620</span>
+</div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-gray-500">Formato</span>
+<span class="font-semibold text-gray-900 dark:text-white">10x15 cm</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-gray-500">Cantidad</span>
+<span class="font-semibold text-gray-900 dark:text-white">2 fotos</span>
+</div>
+</div>
+</div>
+<div class="p-4 bg-white dark:bg-slate-900 border-t border-gray-100 dark:border-gray-800">
+<button class="w-full bg-primary text-white font-bold py-3 rounded-xl shadow-lg shadow-primary/30 flex items-center justify-center gap-2">
+                                    Imprimir Ahora <span class="material-icons text-sm">print</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<h2 class="text-3xl lg:text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">
+                        Simplicidad Radical. <br/>
+<span class="text-primary">Escanear. Subir. Imprimir.</span>
+</h2>
+<p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                        Elimina la fricción de descargar apps o usar cables. Nuestro sistema PWA (Progressive Web App) funciona instantáneamente en cualquier navegador moderno.
+                    </p>
+<div class="flex items-start gap-4 mb-8">
+<div class="bg-white p-2 rounded-lg border border-gray-200 shadow-sm">
+<img alt="Demo QR Code" class="w-24 h-24" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALq2BSqNaA543mjs6KSV8ClLecL3BQALvPVhaT7op7c3SqDczTNfcCInHfppq-YD666IwY1wqtv9d9uUfa8qVb5xGZM7oM_JmXon6a8nfVe0Jdr71hmzpCQDIYsRnHlmFt_jsWxggs3BVVa2mindG_IvvxvFVFGiqqoR3rhIhp9WQsob2S9hViIdd8Cb-jkuYW2oTmf7mypuX9L-W-7sgtZU9BvL7kfMHqCUumy4dqFXPK04xLVZS1EEOerKjG_OLrMpqJEglNv3iH"/>
+</div>
+<div>
+<h4 class="font-bold text-gray-900 dark:text-white mb-1">Prueba la experiencia</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Apunta tu cámara al código QR para ver la interfaz móvil.</p>
+<span class="text-xs font-semibold px-2 py-1 bg-green-100 text-green-700 rounded-full">En vivo ahora</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 flex items-center justify-center">
+<span class="material-icons text-sm">speed</span>
+</div>
+<span class="text-gray-700 dark:text-gray-200">Velocidad de carga optimizada por CDN</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+<span class="material-icons text-sm">lock</span>
+</div>
+<span class="text-gray-700 dark:text-gray-200">Transferencia encriptada de extremo a extremo</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+<span class="material-icons text-sm">devices</span>
+</div>
+<span class="text-gray-700 dark:text-gray-200">Compatible con iOS y Android</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-slate-900 text-white pt-16 pb-8 border-t border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-4">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-accent via-secondary to-primary flex items-center justify-center font-bold text-xs text-white">LF</div>
+<span class="font-display font-bold text-xl">LocalFoto</span>
+</div>
+<p class="text-gray-400 text-sm mb-6">
+                        La plataforma definitiva para conectar el mundo digital con la impresión profesional.
+                    </p>
+<div class="flex space-x-4">
+<a class="text-gray-400 hover:text-white transition-colors" href="#"><span class="sr-only">Facebook</span>FB</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#"><span class="sr-only">Twitter</span>TW</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#"><span class="sr-only">Instagram</span>IG</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#"><span class="sr-only">LinkedIn</span>LI</a>
+</div>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-gray-200 uppercase tracking-wider mb-4">Producto</h3>
+<ul class="space-y-3">
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm" href="#">Características</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm" href="#">Integraciones</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm" href="#">Precios</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm" href="#">Roadmap</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-gray-200 uppercase tracking-wider mb-4">Recursos</h3>
+<ul class="space-y-3">
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm" href="#">Documentación</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm" href="#">Guías de API</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm" href="#">Soporte</a></li>
+<li><a class="text-gray-400 hover:text-primary transition-colors text-sm" href="#">Estado del sistema</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-gray-200 uppercase tracking-wider mb-4">SaaS Plans</h3>
+<div class="bg-slate-800 rounded-lg p-4 border border-slate-700">
+<p class="text-xs text-gray-400 mb-2">Comienza gratis hoy.</p>
+<a class="block w-full text-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-sky-600 focus:outline-none transition-colors" href="#">
+                            Ver Planes
+                        </a>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm">
+                    © 2023 LocalFoto Inc. Todos los derechos reservados.
+                </p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a class="text-gray-500 hover:text-gray-300 text-sm" href="#">Privacidad</a>
+<a class="text-gray-500 hover:text-gray-300 text-sm" href="#">Términos</a>
+<a class="text-gray-500 hover:text-gray-300 text-sm" href="#">Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

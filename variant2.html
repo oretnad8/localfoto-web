@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LocalFoto - Características Detalladas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0ea5e9", // Sky blue from logo
+                        secondary: "#ec4899", // Pink from logo
+                        accent: "#eab308", // Yellow from logo
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e293b",
+                        "text-light": "#1e293b",
+                        "text-dark": "#f1f5f9",
+                        "slate-850": "#162032",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem",
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(14, 165, 233, 0.3)',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #0ea5e9, #ec4899, #eab308);
+        }
+        .hero-blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, rgba(236,72,153,0.05) 50%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 0;
+        }
+        .grid-bg {
+            background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px), linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .dark .grid-bg {
+            background-image: linear-gradient(to right, #334155 1px, transparent 1px), linear-gradient(to bottom, #334155 1px, transparent 1px);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-body transition-colors duration-300">
+<nav class="sticky top-0 z-50 w-full backdrop-blur-md bg-surface-light/90 dark:bg-surface-dark/90 border-b border-gray-200 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center">
+<div class="flex-shrink-0 flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-slate-900 relative overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 bg-gradient-to-tr from-accent via-secondary to-primary opacity-80"></div>
+<span class="relative text-white font-bold text-xs" style="">LF</span>
+</div>
+<span class="font-display font-bold text-xl tracking-tight" style="">LocalFoto</span>
+</div>
+<div class="hidden md:block ml-10 space-x-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#" style="">Editores</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#flow" style="">Flujo</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#whitelabel" style="">Marca Blanca</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#connectivity" style="">Conectividad</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-500 dark:text-gray-400" onclick="document.documentElement.classList.toggle('dark')" style="">
+<span class="material-symbols-outlined text-xl" style="">brightness_4</span>
+</button>
+<a class="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all" href="#" style="">
+                        Panel SaaS
+                    </a>
+</div>
+</div>
+</div>
+</nav>
+<section class="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-32">
+<div class="hero-blob top-0 right-0 translate-x-1/3 -translate-y-1/4"></div>
+<div class="hero-blob bottom-0 left-0 -translate-x-1/3 translate-y-1/4"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+<div class="lg:col-span-7 text-left mb-12 lg:mb-0">
+<div class="inline-flex items-center px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-semibold mb-6 uppercase tracking-wider" style="">
+                        Rendering Engine v3.0
+                    </div>
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold tracking-tight mb-6 leading-tight" style="">
+                        Tecnología de Laboratorio,<br/>
+<span class="gradient-text" style="">Experiencia de Usuario de Próxima Gen.</span>
+</h1>
+<p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl" style="">
+                        Un motor de renderizado a 300 DPI nativos diseñado para kioscos de autoservicio y laboratorios de alto volumen. Optimiza el tiempo de operación en un 70%.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-start">
+<div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800/50 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700">
+<span class="material-symbols-outlined text-secondary" style="">speed</span>
+<span class="" style="">Procesamiento en &lt; 200ms</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800/50 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700">
+<span class="material-symbols-outlined text-primary" style="">print</span>
+<span class="" style="">Soporte Color ICC</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="relative bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-2xl shadow-2xl p-6 overflow-hidden">
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent"></div>
+<div class="grid-bg absolute inset-0 opacity-20 pointer-events-none"></div>
+<div class="relative z-10 space-y-4">
+<div class="flex justify-between items-center border-b border-gray-100 dark:border-gray-800 pb-4">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-red-500"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+<div class="w-3 h-3 rounded-full bg-green-500"></div>
+</div>
+<div class="text-xs font-mono text-gray-400" style="">LocalFoto_Engine_Core.exe</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center bg-gray-50 dark:bg-slate-850 p-3 rounded border border-gray-100 dark:border-gray-700">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="">photo_filter</span>
+<div class="flex flex-col">
+<span class="text-sm font-bold" style="">Auto-Enhance AI</span>
+<span class="text-xs text-gray-500" style="">Contrast/Brightness</span>
+</div>
+</div>
+<span class="text-xs font-mono text-green-500" style="">ACTIVE</span>
+</div>
+<div class="h-32 bg-gray-900 rounded relative overflow-hidden flex items-center justify-center">
+<div class="flex items-end h-20 gap-1 opacity-70">
+<div class="w-2 bg-primary h-[40%]"></div>
+<div class="w-2 bg-primary h-[60%]"></div>
+<div class="w-2 bg-primary h-[80%]"></div>
+<div class="w-2 bg-primary h-[50%]"></div>
+<div class="w-2 bg-primary h-[90%]"></div>
+<div class="w-2 bg-primary h-[70%]"></div>
+<div class="w-2 bg-primary h-[30%]"></div>
+</div>
+<div class="absolute bottom-2 right-2 text-[10px] text-gray-400 font-mono" style="">300 DPI OUTPUT</div>
+</div>
+<div class="flex justify-between items-center bg-gray-50 dark:bg-slate-850 p-3 rounded border border-gray-100 dark:border-gray-700">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="">print_connect</span>
+<div class="flex flex-col">
+<span class="text-sm font-bold" style="">Spooler Service</span>
+<span class="text-xs text-gray-500" style="">Redirecting to DNP-DS620</span>
+</div>
+</div>
+<div class="flex gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse delay-75"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse delay-150"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-white dark:bg-slate-850" id="features">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4" style="">Editores Especializados</h2>
+<p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" style="">Herramientas de edición potentes integradas directamente en el flujo de trabajo del kiosco.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="group p-6 bg-background-light dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:border-primary/50">
+<div class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl" style="">grid_view</span>
+</div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2" style="">Editor de Collage</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-4" style="">
+                        Motor de composición con detección de colisiones, pan &amp; zoom táctil fluido y plantillas dinámicas.
+                    </p>
+<div class="text-xs font-mono text-primary bg-primary/5 p-2 rounded" style="">Auto-Layout Engine</div>
+</div>
+<div class="group p-6 bg-background-light dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:border-secondary/50">
+<div class="w-12 h-12 rounded-lg bg-pink-100 dark:bg-pink-900/30 text-secondary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl" style="">calendar_month</span>
+</div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2" style="">Generador de Calendarios</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-4" style="">
+                        Preparación automática de 12 meses con feriados chilenos integrados y personalización de fechas.
+                    </p>
+<div class="text-xs font-mono text-secondary bg-secondary/5 p-2 rounded" style="">Locale: es-CL</div>
+</div>
+<div class="group p-6 bg-background-light dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:border-accent/50">
+<div class="w-12 h-12 rounded-lg bg-yellow-100 dark:bg-yellow-900/30 text-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl" style="">photo_library</span>
+</div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2" style="">Photo Strip Studio</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-4" style="">
+                        Optimización de corte para 4 tiras por hoja. Compatible nativamente con cortadoras DNP y Fuji.
+                    </p>
+<div class="text-xs font-mono text-accent bg-accent/5 p-2 rounded" style="">2x6 Cut Layout</div>
+</div>
+<div class="group p-6 bg-background-light dark:bg-surface-dark rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:border-gray-400">
+<div class="w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-2xl" style="">card_giftcard</span>
+</div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2" style="">Smart Gifts</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-4" style="">
+                        Productos con valor agregado: integración con códigos de Spotify y mensajes secretos via QR.
+                    </p>
+<div class="text-xs font-mono text-gray-500 bg-gray-200 dark:bg-gray-800 p-2 rounded" style="">QR Generation API</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800" id="flow">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="lg:grid lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-3xl font-display font-bold text-gray-900 dark:text-white mb-6" style="">Control de Flujo Operativo</h2>
+<p class="text-lg text-gray-600 dark:text-gray-300 mb-8" style="">
+                        Arquitectura centralizada que separa la gestión de pedidos de la validación técnica. Un solo PC puede orquestar múltiples impresoras.
+                    </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="mt-1 bg-slate-100 dark:bg-slate-800 p-2 rounded border border-gray-200 dark:border-gray-700">
+<span class="material-symbols-outlined text-gray-700 dark:text-gray-300" style="">admin_panel_settings</span>
+</div>
+<div>
+<h4 class="font-bold text-gray-900 dark:text-white" style="">Rol Admin vs Validador</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1" style="">
+                                    El administrador gestiona precios y productos, mientras el validador revisa la calidad de imagen antes de liberar la impresión.
+                                </p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="mt-1 bg-slate-100 dark:bg-slate-800 p-2 rounded border border-gray-200 dark:border-gray-700">
+<span class="material-symbols-outlined text-gray-700 dark:text-gray-300" style="">hub</span>
+</div>
+<div>
+<h4 class="font-bold text-gray-900 dark:text-white" style="">Lógica de Control de Hardware</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1" style="">
+                                    Redirección inteligente via Hotfolders para Fujifilm y SDK nativo para DNP. Balanceo de carga automático.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative bg-slate-50 dark:bg-slate-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 shadow-inner">
+<div class="absolute inset-0 grid-bg opacity-30"></div>
+<div class="relative flex flex-col items-center gap-8">
+<div class="relative z-10 w-48 bg-white dark:bg-surface-dark border-2 border-primary rounded-xl p-4 shadow-xl text-center">
+<span class="material-symbols-outlined text-4xl text-primary mb-2" style="">desktop_windows</span>
+<div class="font-bold text-gray-900 dark:text-white text-sm" style="">PC Central (Server)</div>
+<div class="text-[10px] text-gray-400 mt-1" style="">LocalFoto Core Service</div>
+<div class="absolute -bottom-8 left-1/2 w-0.5 h-8 bg-gray-300 dark:bg-gray-600 -translate-x-1/2"></div>
+<div class="absolute -bottom-8 left-1/4 w-0.5 h-8 bg-gray-300 dark:bg-gray-600 -translate-x-1/2 rotate-45 origin-top"></div>
+<div class="absolute -bottom-8 right-1/4 w-0.5 h-8 bg-gray-300 dark:bg-gray-600 translate-x-1/2 -rotate-45 origin-top"></div>
+</div>
+<div class="flex gap-4 justify-center w-full">
+<div class="flex flex-col items-center">
+<div class="w-24 bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-lg p-3 shadow-sm text-center relative z-10">
+<div class="absolute -top-4 left-1/2 w-0.5 h-4 bg-gray-300 dark:bg-gray-600 -translate-x-1/2"></div>
+<span class="material-symbols-outlined text-2xl text-gray-500" style="">print</span>
+<div class="text-[10px] font-bold mt-1" style="">DNP DS620</div>
+<div class="text-[9px] text-green-500" style="">Online</div>
+</div>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-24 bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-lg p-3 shadow-sm text-center relative z-10">
+<div class="absolute -top-4 left-1/2 w-0.5 h-4 bg-gray-300 dark:bg-gray-600 -translate-x-1/2"></div>
+<span class="material-symbols-outlined text-2xl text-gray-500" style="">print</span>
+<div class="text-[10px] font-bold mt-1" style="">Fuji DX100</div>
+<div class="text-[9px] text-yellow-500" style="">Low Ink</div>
+</div>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-24 bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-lg p-3 shadow-sm text-center relative z-10">
+<div class="absolute -top-4 left-1/2 w-0.5 h-4 bg-gray-300 dark:bg-gray-600 -translate-x-1/2"></div>
+<span class="material-symbols-outlined text-2xl text-gray-500" style="">print</span>
+<div class="text-[10px] font-bold mt-1" style="">EPSON P800</div>
+<div class="text-[9px] text-green-500" style="">Online</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-background-light dark:bg-background-dark" id="whitelabel">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="relative rounded-3xl overflow-hidden shadow-2xl bg-[#0B0F19] border border-gray-800">
+<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
+<div class="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
+<div class="relative z-10 grid lg:grid-cols-12 gap-0">
+<div class="lg:col-span-5 p-10 flex flex-col justify-center border-r border-gray-800/50 backdrop-blur-sm bg-slate-900/40">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold mb-6 w-fit border border-blue-500/20 shadow-glow">
+                        Enterprise Grade
+                    </div>
+<h2 class="text-3xl lg:text-4xl font-display font-bold text-white mb-4">
+                        Identidad Instantánea<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 text-2xl lg:text-3xl">(White Label)</span>
+</h2>
+<p class="text-gray-400 mb-8 text-lg font-light leading-relaxed">
+                        Inyecta tu ADN corporativo en segundos mediante el licenciamiento por HWID. Transforma la experiencia completa.
+                    </p>
+<div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700/50 backdrop-blur-md mb-8">
+<div class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-4">Branding Settings</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30 text-indigo-400">
+<span class="material-symbols-outlined text-xl">upload_file</span>
+</div>
+<div>
+<div class="text-sm text-gray-200 font-medium">Logotipo Principal</div>
+<div class="text-xs text-gray-500">PNG, SVG (Max 2MB)</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-gray-600 group-hover:text-white transition-colors">chevron_right</span>
+</div>
+<div class="h-px bg-gray-700/50"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-pink-500/20 flex items-center justify-center border border-pink-500/30 text-pink-400">
+<span class="material-symbols-outlined text-xl">palette</span>
+</div>
+<div>
+<div class="text-sm text-gray-200 font-medium">Color Primario</div>
+<div class="flex gap-2 mt-1">
+<div class="w-4 h-4 rounded-full bg-pink-500 ring-2 ring-offset-2 ring-offset-slate-900 ring-pink-500/50 cursor-pointer"></div>
+<div class="w-4 h-4 rounded-full bg-blue-500 opacity-50 cursor-pointer hover:opacity-100 transition-opacity"></div>
+<div class="w-4 h-4 rounded-full bg-green-500 opacity-50 cursor-pointer hover:opacity-100 transition-opacity"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul class="space-y-3">
+<li class="flex items-center text-gray-300 text-sm">
+<span class="material-symbols-outlined text-blue-400 mr-3 text-lg">check_circle</span>
+                            Logo personalizado en cada pantalla
+                        </li>
+<li class="flex items-center text-gray-300 text-sm">
+<span class="material-symbols-outlined text-blue-400 mr-3 text-lg">check_circle</span>
+                            Dominios y subdominios propios
+                        </li>
+<li class="flex items-center text-gray-300 text-sm">
+<span class="material-symbols-outlined text-blue-400 mr-3 text-lg">check_circle</span>
+                            Integración transparente de llaves de MercadoPago
+                        </li>
+</ul>
+</div>
+<div class="lg:col-span-7 bg-slate-900/80 p-10 lg:p-16 flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
+<div class="relative w-full max-w-lg aspect-[4/3]">
+<div class="absolute -top-6 -right-6 z-30 animate-bounce delay-700 duration-[3000ms]">
+<div class="bg-slate-800/90 backdrop-blur border border-slate-600 text-xs px-3 py-1.5 rounded-lg text-white shadow-xl flex items-center gap-2">
+<span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                                Brand Applied
+                             </div>
+</div>
+<div class="absolute inset-0 bg-slate-800 rounded-xl border border-slate-700 shadow-2xl overflow-hidden flex flex-col transition-all duration-1000 ease-in-out group">
+<div class="h-14 border-b border-slate-700 flex items-center justify-between px-6 bg-slate-900 relative overflow-hidden">
+<div class="absolute inset-0 bg-slate-900 transition-opacity duration-1000 group-hover:opacity-0 flex items-center px-6">
+<div class="w-6 h-6 rounded-full bg-slate-700 mr-3"></div>
+<div class="h-2 w-24 bg-slate-700 rounded"></div>
+</div>
+<div class="absolute inset-0 bg-white transition-opacity duration-1000 opacity-0 group-hover:opacity-100 flex items-center px-6">
+<div class="w-8 h-8 rounded bg-pink-600 text-white flex items-center justify-center font-bold mr-3 text-xs">CL</div>
+<div class="h-3 w-32 bg-gray-200 rounded"></div>
+</div>
+</div>
+<div class="flex-1 p-6 relative">
+<div class="absolute inset-0 bg-slate-800 transition-colors duration-1000 group-hover:bg-gray-50"></div>
+<div class="relative z-10 flex gap-6 h-full">
+<div class="w-16 hidden sm:flex flex-col gap-4 py-2 border-r border-slate-700/50 group-hover:border-gray-200 transition-colors duration-1000">
+<div class="w-10 h-10 rounded-lg bg-slate-700 group-hover:bg-pink-100 transition-colors duration-1000"></div>
+<div class="w-10 h-10 rounded-lg bg-slate-700/50 group-hover:bg-gray-200 transition-colors duration-1000"></div>
+<div class="w-10 h-10 rounded-lg bg-slate-700/50 group-hover:bg-gray-200 transition-colors duration-1000"></div>
+</div>
+<div class="flex-1 space-y-4">
+<div class="h-32 rounded-xl bg-slate-700 group-hover:bg-white group-hover:shadow-sm transition-all duration-1000 border border-transparent group-hover:border-gray-200 relative overflow-hidden">
+<div class="absolute bottom-0 left-0 h-1 bg-blue-500 group-hover:bg-pink-500 w-3/4 transition-colors duration-1000"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="h-24 rounded-xl bg-slate-700/50 group-hover:bg-white group-hover:shadow-sm transition-all duration-1000 border border-transparent group-hover:border-gray-200"></div>
+<div class="h-24 rounded-xl bg-slate-700/50 group-hover:bg-white group-hover:shadow-sm transition-all duration-1000 border border-transparent group-hover:border-gray-200"></div>
+</div>
+<div class="mt-auto pt-4">
+<div class="h-10 w-full rounded-lg bg-blue-600 group-hover:bg-pink-600 transition-colors duration-1000 flex items-center justify-center text-white text-sm font-medium shadow-lg shadow-blue-900/20 group-hover:shadow-pink-500/30">
+<span class="group-hover:hidden">System Action</span>
+<span class="hidden group-hover:block">Imprimir Fotos</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent h-[200%] w-full -translate-y-full group-hover:translate-y-full transition-transform duration-[1500ms] pointer-events-none"></div>
+</div>
+<div class="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur-2xl opacity-20 -z-10 group-hover:opacity-40 transition-opacity duration-1000"></div>
+</div>
+<div class="absolute bottom-6 text-center w-full">
+<span class="text-xs font-mono text-gray-500 uppercase tracking-widest animate-pulse">Hover to visualize transformation</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-white dark:bg-slate-850" id="connectivity">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4" style="">Conectividad Total</h2>
+<p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" style="">Múltiples vías de entrada para maximizar la captación de clientes.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-gray-50 dark:bg-surface-dark p-8 rounded-2xl border border-gray-100 dark:border-gray-700 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined text-3xl" style="">cloud_sync</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2" style="">Cloud-Sync</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400" style="">
+                        Sincronización en tiempo real entre kioscos y dashboard de gestión. Respaldo automático de transacciones.
+                    </p>
+</div>
+<div class="bg-gray-50 dark:bg-surface-dark p-8 rounded-2xl border border-gray-100 dark:border-gray-700 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/20 rounded-full flex items-center justify-center mb-6 text-purple-600 dark:text-purple-400">
+<span class="material-symbols-outlined text-3xl" style="">usb</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2" style="">USB &amp; Bluetooth</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400" style="">
+                        Lectura ultrarrápida de memorias y envío directo vía Bluetooth sin emparejamientos complejos.
+                    </p>
+</div>
+<div class="bg-gray-50 dark:bg-surface-dark p-8 rounded-2xl border border-gray-100 dark:border-gray-700 flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center mb-6 text-green-600 dark:text-green-400">
+<span class="material-symbols-outlined text-3xl" style="">qr_code_scanner</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2" style="">QR Remote Upload</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400" style="">
+                        El cliente escanea y sube. Sin app. La forma más rápida de descongestionar el kiosco físico.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-slate-900 text-white pt-16 pb-8 border-t border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-4">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-accent via-secondary to-primary flex items-center justify-center font-bold text-xs text-white" style="">LF</div>
+<span class="font-display font-bold text-xl" style="">LocalFoto</span>
+</div>
+<p class="text-gray-400 text-sm mb-6" style="">
+                        Infraestructura de impresión profesional para la era digital.
+                    </p>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-gray-200 uppercase tracking-wider mb-4" style="">Tecnología</h3>
+<ul class="space-y-3">
+<li class="" style=""><a class="text-gray-400 hover:text-primary transition-colors text-sm" href="#" style="">Rendering Engine</a></li>
+<li class="" style=""><a class="text-gray-400 hover:text-primary transition-colors text-sm" href="#" style="">Hardware Support</a></li>
+<li class="" style=""><a class="text-gray-400 hover:text-primary transition-colors text-sm" href="#" style="">API Docs</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-gray-200 uppercase tracking-wider mb-4" style="">Legal</h3>
+<ul class="space-y-3">
+<li class="" style=""><a class="text-gray-400 hover:text-primary transition-colors text-sm" href="#" style="">Términos de Servicio</a></li>
+<li class="" style=""><a class="text-gray-400 hover:text-primary transition-colors text-sm" href="#" style="">Política de Privacidad</a></li>
+<li class="" style=""><a class="text-gray-400 hover:text-primary transition-colors text-sm" href="#" style="">SLA</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-semibold text-gray-200 uppercase tracking-wider mb-4" style="">Contacto</h3>
+<p class="text-sm text-gray-400 mb-2" style="">soporte@localfoto.com</p>
+<div class="flex space-x-4 mt-4">
+<a class="text-gray-400 hover:text-white transition-colors" href="#" style=""><span class="sr-only" style="">LinkedIn</span>LI</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#" style=""><span class="sr-only" style="">Twitter</span>TW</a>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm" style="">
+                    © 2023 LocalFoto Inc. Todos los derechos reservados.
+                </p>
+</div>
+</div>
+</footer>
+</body></html>

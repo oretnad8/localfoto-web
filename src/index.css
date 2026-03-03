@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@property --brand-50 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #eff6ff;
+}
+
+@property --brand-100 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #dbeafe;
+}
+
+@property --brand-200 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #bfdbfe;
+}
+
+@property --brand-300 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #93c5fd;
+}
+
+@property --brand-400 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #60a5fa;
+}
+
+@property --brand-500 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #3b82f6;
+}
+
+@property --brand-600 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #2563eb;
+}
+
+@property --brand-700 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #1d4ed8;
+}
+
+@property --brand-800 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #1e40af;
+}
+
+@property --brand-900 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #1e3a8a;
+}
+
+@property --brand-950 {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #172554;
+}
+
+:root {
+  transition:
+    --brand-50 0.5s ease, --brand-100 0.5s ease, --brand-200 0.5s ease,
+    --brand-300 0.5s ease, --brand-400 0.5s ease, --brand-500 0.5s ease,
+    --brand-600 0.5s ease, --brand-700 0.5s ease, --brand-800 0.5s ease,
+    --brand-900 0.5s ease, --brand-950 0.5s ease;
+}
+
+@theme {
+  --color-primary-500: #0ea5e9;
+  --color-secondary-500: #ec4899;
+  --color-accent-500: #eab308;
+
+  --color-deep-100: #e6ebf2;
+  --color-deep-300: #b3c2d9;
+  --color-deep-500: #2D3A52;
+  /* Deep blue from specs */
+  --color-deep-800: #1a2233;
+  --color-deep-900: #0d111a;
+
+  --color-light-bg: #F3F4F6;
+  /* Gray-100 equivalent from specs */
+  --color-light-surface: #ffffff;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer utilities {
+  .gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, var(--brand-600), var(--brand-500));
+  }
+
+  .gradient-bg {
+    background-image: linear-gradient(to right, var(--brand-600), var(--brand-500));
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-light-bg);
+    color: var(--color-deep-500);
+  }
+}
